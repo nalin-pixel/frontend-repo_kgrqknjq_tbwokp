@@ -1,28 +1,35 @@
-import { useState } from 'react'
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import Projects from './components/Projects';
+import Contact from './components/Contact';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <div className="min-h-screen bg-black text-white selection:bg-cyan-500/30 selection:text-white">
+      <div
+        aria-hidden
+        className="pointer-events-none fixed inset-0 -z-0"
+        style={{
+          background:
+            'radial-gradient(80rem 40rem at 10% -10%, rgba(34,211,238,0.15), transparent 40%), radial-gradient(70rem 30rem at 100% 10%, rgba(139,92,246,0.12), transparent 40%)',
+        }}
+      />
+
+      <Navbar />
+      <main>
+        <Hero />
+        <Projects />
+        <Contact />
+      </main>
+
+      <footer className="border-t border-white/10 py-10">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 text-sm text-white/60">
+          <p>© {new Date().getFullYear()} Your Name. All rights reserved.</p>
+          <p className="text-white/40">Built with React, Tailwind, Framer Motion & Spline</p>
         </div>
-      </div>
+      </footer>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
